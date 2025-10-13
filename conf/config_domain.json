@@ -1,5 +1,5 @@
 {
-  "serverName": "VirtualTableTop",
+  "serverName": "VTT",
   "port": "__PORT__",
   "externalURL": "https://__DOMAIN__",
   "urlPrefix": "__PATH_WITHOUT_LEADING_SLASH__",

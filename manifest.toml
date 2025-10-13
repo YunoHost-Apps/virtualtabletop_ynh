@@ -12,7 +12,7 @@ version = "2025.10.09~ynh1"
 maintainers = ["trendless"]
 
 [upstream]
-license = "GPLv3"
+license = "GPL-3.0-only"
 demo = "https://virtualtabletop.io"
 admindoc = "https://github.com/ArnoldSmith86/virtualtabletop/wiki"
 userdoc = "https://github.com/ArnoldSmith86/virtualtabletop/wiki/Playing-Games"
@@ -26,13 +26,12 @@ helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
-ldap = "false"
+ldap = false
+sso = false
 
-sso = "false"
-
-disk = "50M"
-ram.build = "50M"
-ram.runtime = "50M"
+disk = "1G"
+ram.build = "500M"
+ram.runtime = "250M"
 
 [install]
     [install.domain]

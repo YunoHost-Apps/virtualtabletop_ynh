@@ -16,7 +16,7 @@ ynh_systemctl --service="$app" --action="stop" --log_path="systemd"
 #=================================================
 # APP RECONFIGURATION
 #=================================================
-ynh_script_progression "Adding $app's configuration files..."
+ynh_script_progression "Reconfiguring $app..."
 
 if [ $path = "/" ]
 then
