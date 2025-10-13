@@ -4,8 +4,8 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/virtualtabletop.png" width="32px" alt="Logo of VirtualTableTop">
-  VirtualTableTop, packaged for YunoHost
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/virtualtabletop.png" width="32px" alt="Logo of VirtualTabletop">
+  VirtualTabletop, packaged for YunoHost
 </h1>
 
 Virtual surface in the browser on which you can play board, dice and card games
@@ -20,13 +20,13 @@ Virtual surface in the browser on which you can play board, dice and card games
 
 
 ## Screenshots
-![Screenshot of VirtualTableTop](./doc/screenshots/main.png)
+![Screenshot of VirtualTabletop](./doc/screenshots/main.png)
 
 ## 📦 Developer info
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/virtualtabletop)](https://ci-apps.yunohost.org/ci/apps/virtualtabletop/)
 
-🛠️ Upstream VirtualTableTop repository: <https://github.com/ArnoldSmith86/virtualtabletop>
+🛠️ Upstream VirtualTabletop repository: <https://github.com/ArnoldSmith86/virtualtabletop>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/virtualtabletop_ynh/tree/testing).
 
