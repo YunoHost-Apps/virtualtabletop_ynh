@@ -45,7 +45,7 @@ ynh_config_add_systemd
 
 ynh_config_add_logrotate
 
-yunohost service add "$app" --description="virtualtabletop service" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="virtual tabletop games" --log="/var/log/$app/$app.log"
 
 #=================================================
 # INSTALL VIRTUALTABLETOP

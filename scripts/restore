@@ -24,7 +24,7 @@ ynh_restore "/etc/systemd/system/$app.service"
 
 systemctl enable "$app.service" --quiet
 
-yunohost service add "$app" --description="virtualtabletop service" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="virtual tabletop games" --log="/var/log/$app/$app.log"
 
 #=================================================
 # RESTORE LOGGING
