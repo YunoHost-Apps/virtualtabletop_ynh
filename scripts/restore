@@ -9,14 +9,14 @@ source /usr/share/yunohost/helpers
 #=================================================
 # RESTORE THE APP MAIN DIR
 #=================================================
-ynh_script_progression "Restoring the app main directory..."
+ynh_script_progression "Restoring $app directory backup to $install_dir..."
 
 ynh_restore "$install_dir"
 
 #=================================================
 # RESTORE SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression "Restoring system configurations related to $app..."
+ynh_script_progression "Restoring system and app configs..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
@@ -26,23 +26,39 @@ systemctl enable "$app.service" --quiet
 
 yunohost service add "$app" --description="virtual board, card, dice games" --log="/var/log/$app/$app.log"
 
+#=================================================
+# RESTORE LOGS FILES
+#=================================================
+ynh_script_progression "Restoring $app logs..."
+
 ynh_restore "/etc/logrotate.d/$app"
 
-#=================================================
-# RESTORE VARIOUS FILES
-#=================================================
 ynh_restore "/var/log/$app/"
 
 #=================================================
-# RELOAD NGINX AND THE APP SERVICE
+# REINSTALL VIRTUALTABLETOP
 #=================================================
-ynh_script_progression "Reloading NGINX web server and $app's service..."
+ynh_script_progression "Building $app..."
+
+pushd "$install_dir"
+	ynh_hide_warnings ynh_exec_as_app npm install
+popd
+
+#=================================================
+# START APP SERVICE
+#=================================================
+ynh_script_progression "Starting $app..."
 
 ynh_systemctl --service="$app" --action="start" --wait_until="Listening on 8272" --log_path="systemd"
+
+#=================================================
+# RELOAD NGINX
+#=================================================
+ynh_script_progression "Reloading NGINX..."
 
 ynh_systemctl --service=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
 #=================================================
-ynh_script_progression "Restoration completed for $app"
+ynh_script_progression "$app restoration complete."
