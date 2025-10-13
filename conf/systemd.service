@@ -1,5 +1,5 @@
 [Unit]
-Description=VirtualTabletop: virtual board, card, dice games.
+Description=VirtualTabletop: virtual tabletop games
 After=syslog.target network.target
 
 [Service]
