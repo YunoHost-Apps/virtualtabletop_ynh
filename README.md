@@ -4,39 +4,39 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/vtt.png" width="32px" alt="Logo of VTT (Virtual Tabletop)">
-  VTT (Virtual Tabletop), packaged for YunoHost
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/virtualtabletop.png" width="32px" alt="Logo of VirtualTableTop">
+  VirtualTableTop, packaged for YunoHost
 </h1>
 
 Virtual surface in the browser on which you can play board, dice and card games
 
 [![App Demo](https://img.shields.io/badge/App_Demo-blue?style=for-the-badge)](https://virtualtabletop.io)
-[![Version: 2025.10.09~ynh1](https://img.shields.io/badge/Version-2025.10.09~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/vtt/)
+[![Version: 2025.10.09~ynh1](https://img.shields.io/badge/Version-2025.10.09~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/virtualtabletop/)
 
 <div align="center">
-<a href="https://apps.yunohost.org/app/vtt"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
-<a href="https://github.com/YunoHost-Apps/vtt_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
+<a href="https://apps.yunohost.org/app/virtualtabletop"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
+<a href="https://github.com/YunoHost-Apps/virtualtabletop_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
 
 
 ## Screenshots
-![Screenshot of VTT (Virtual Tabletop)](./doc/screenshots/main.png)
+![Screenshot of VirtualTableTop](./doc/screenshots/main.png)
 
 ## 📦 Developer info
 
-[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/vtt)](https://ci-apps.yunohost.org/ci/apps/vtt/)
+[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/virtualtabletop)](https://ci-apps.yunohost.org/ci/apps/virtualtabletop/)
 
-🛠️ Upstream VTT (Virtual Tabletop) repository: <https://github.com/ArnoldSmith86/virtualtabletop>
+🛠️ Upstream VirtualTableTop repository: <https://github.com/ArnoldSmith86/virtualtabletop>
 
-Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/vtt_ynh/tree/testing).
+Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/virtualtabletop_ynh/tree/testing).
 
 The `testing` branch can be tested using:
 ```
 # fresh install:
-sudo yunohost app install https://github.com/YunoHost-Apps/vtt_ynh/tree/testing
+sudo yunohost app install https://github.com/YunoHost-Apps/virtualtabletop_ynh/tree/testing
 
 # upgrade an existing install:
-sudo yunohost app upgrade vtt -u https://github.com/YunoHost-Apps/vtt_ynh/tree/testing
+sudo yunohost app upgrade virtualtabletop -u https://github.com/YunoHost-Apps/virtualtabletop_ynh/tree/testing
 ```
 
 ### 📚 App packaging documentation
