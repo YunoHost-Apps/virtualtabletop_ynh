@@ -14,15 +14,6 @@ ynh_script_progression "Restoring $app directory backup to $install_dir..."
 ynh_restore "$install_dir"
 
 #=================================================
-# REINSTALL VIRTUALTABLETOP
-#=================================================
-ynh_script_progression "Building $app..."
-
-pushd "$install_dir"
-	ynh_hide_warnings ynh_exec_as_app npm install
-popd
-
-#=================================================
 # RESTORE SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Restoring system and app configs..."
@@ -33,7 +24,7 @@ ynh_restore "/etc/systemd/system/$app.service"
 
 systemctl enable "$app.service" --quiet
 
-yunohost service add "$app" --description="virtual board, card, dice games" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="virtualtabletop service" --log="/var/log/$app/$app.log"
 
 #=================================================
 # RESTORE LOGGING
