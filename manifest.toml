@@ -2,8 +2,8 @@
 
 packaging_format = 2
 
-id = "vtt"
-name = "VTT (Virtual Tabletop)"
+id = "virtualtabletop"
+name = "VirtualTableTop"
 description.en = "Virtual surface in the browser on which you can play board, dice and card games"
 description.fr = "Surface virtuelle dans le navigateur sur laquelle vous pouvez jouer à des jeux de société, de dés et de cartes"
 
