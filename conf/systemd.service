@@ -1,14 +1,16 @@
 [Unit]
 Description=VirtualTabletop: virtual tabletop games
-After=syslog.target network.target nginx.service
+After=network.target nginx.service
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-Environment="PATH=__PATH_WITH_NODEJS__"
 WorkingDirectory=__INSTALL_DIR__/
+Environment="PATH=__PATH_WITH_NODEJS__"
 ExecStart=__NODEJS_DIR__/npm start
+StandardOutput=append:/var/log/__APP__/__APP__.log
+StandardError=inherit
 Restart=always
 
 ### Depending on specificities of your service/app, you may need to tweak these
