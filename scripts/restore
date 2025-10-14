@@ -1,0 +1,60 @@
+#!/bin/bash
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+source ../settings/scripts/_common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# RESTORE THE APP MAIN DIR
+#=================================================
+ynh_script_progression "Restoring $app directory backup to $install_dir..."
+
+ynh_restore "$install_dir"
+
+#=================================================
+# RESTORE SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression "Restoring system and app configs..."
+
+ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
+
+ynh_restore "/etc/systemd/system/$app.service"
+
+systemctl enable "$app.service" --quiet
+
+yunohost service add "$app" --description="virtual tabletop games" --log="/var/log/$app/$app.log"
+
+#=================================================
+# RESTORE LOGGING
+#=================================================
+ynh_script_progression "Restoring $app logs..."
+
+# mkdir -p /var/log/$app
+# touch /var/log/$app/$app.log
+
+ynh_config_add_logrotate
+
+ynh_restore "/etc/logrotate.d/$app"
+
+ynh_restore "/var/log/$app/"
+
+#=================================================
+# START APP SERVICE
+#=================================================
+ynh_script_progression "Starting $app..."
+
+ynh_systemctl --service="$app" --action="start" --log_path="/var/log/$app/$app.log" --wait_until="Listening on"
+
+#=================================================
+# RELOAD NGINX
+#=================================================
+ynh_script_progression "Reloading NGINX..."
+
+ynh_systemctl --service=nginx --action=reload
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+ynh_script_progression "$app restoration complete."

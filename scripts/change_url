@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# STOP SYSTEMD SERVICE
+#=================================================
+ynh_script_progression "Stopping $app's systemd service..."
+
+ynh_systemctl --service="$app" --action="stop" --log_path="/var/log/$app/$app.log"
+
+#=================================================
+# APP RECONFIGURATION
+#=================================================
+ynh_script_progression "Reconfiguring $app..."
+
+if [ $path = "/" ]
+then
+    ynh_config_add --template="config_domain.json" --destination="$install_dir/config.json"
+    ynh_app_setting_set --key=adminurl --value=https://$domain/$adminpath
+else
+    ynh_config_add --template="config_path.json" --destination="$install_dir/config.json"
+    ynh_app_setting_set --key=adminurl --value=https://$domain$path/$adminpath
+fi
+
+#=================================================
+# MODIFY URL IN NGINX CONF
+#=================================================
+ynh_script_progression "Updating NGINX web server configuration..."
+
+ynh_config_change_url_nginx
+
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_script_progression "Starting $app's systemd service..."
+
+ynh_systemctl --service="$app" --action="start" --log_path="/var/log/$app/$app.log" --wait_until="Listening on"
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_script_progression "Change of URL completed for $app"
