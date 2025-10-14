@@ -31,7 +31,7 @@ yunohost service add "$app" --description="virtual tabletop games" --log="/var/l
 #=================================================
 ynh_script_progression "Restoring $app logs..."
 
-ynh_exec_as_app mkdir /var/log/$app
+ynh_exec_as_app mkdir -p /var/log/$app
 # touch /var/log/$app/$app.log
 
 ynh_restore "/etc/logrotate.d/$app"
