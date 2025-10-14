@@ -1,17 +1,15 @@
 [Unit]
 Description=VirtualTabletop: virtual tabletop games
-After=syslog.target network.target
+After=syslog.target network.target nginx.service
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-Environment="NODE_ENV=production"
 Environment="PATH=__PATH_WITH_NODEJS__"
 WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__NODEJS_DIR__/npm start
-StandardOutput=append:/var/log/__APP__/__APP__.log
-StandardError=inherit
+Restart=always
 
 ### Depending on specificities of your service/app, you may need to tweak these
 ### .. but this should be a good baseline
@@ -24,16 +22,13 @@ RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
 RestrictNamespaces=yes
 RestrictRealtime=yes
 DevicePolicy=closed
-ProtectClock=yes
-ProtectHostname=yes
 ProtectProc=invisible
 ProtectSystem=full
 ProtectControlGroups=yes
 ProtectKernelModules=yes
 ProtectKernelTunables=yes
 LockPersonality=yes
-SystemCallArchitectures=native
-SystemCallFilter=~@clock @debug @module @mount @obsolete @reboot @setuid @swap @cpu-emulation @privileged
+SystemCallFilter=~@clock @debug @module @mount @obsolete @reboot @setuid @swap
 
 # Denying access to capabilities that should not be relevant for webapps
 # Doc: https://man7.org/linux/man-pages/man7/capabilities.7.html
