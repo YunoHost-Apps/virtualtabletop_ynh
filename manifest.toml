@@ -17,7 +17,6 @@ demo = "https://virtualtabletop.io"
 admindoc = "https://github.com/ArnoldSmith86/virtualtabletop/wiki"
 userdoc = "https://github.com/ArnoldSmith86/virtualtabletop/wiki/Playing-Games"
 code = "https://github.com/ArnoldSmith86/virtualtabletop"
-
 fund = "https://www.patreon.com/virtualtabletop"
 
 [integration]
