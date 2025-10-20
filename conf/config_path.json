@@ -9,7 +9,7 @@
   "customTab": null,
 
   "allowPublicLibraryEdits": false,
-  "adminURL": "/__ADMINPATH__",
+  "adminURL": "/stats",
 
   "directories": {
     "library": "library",
