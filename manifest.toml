@@ -60,6 +60,9 @@ ram.runtime = "250M"
 
     [resources.permissions]
     main.url = "/"
+    admin.url = "/stats"
+    admin.show_tile = false
+    admin.allowed = "admins"
 
     [resources.ports]
     main.default = 8272
