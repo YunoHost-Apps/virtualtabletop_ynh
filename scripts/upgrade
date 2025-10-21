@@ -41,6 +41,8 @@ fi
 
 ynh_app_setting_set --key=adminpath --value=stats
 
+ynh_write_var_in_file --file="$install_dir/config.json" --key="adminURL" --value="/stats"
+
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
 #=================================================
