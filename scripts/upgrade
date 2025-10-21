@@ -28,20 +28,21 @@ chown -R $app:$app "$install_dir"
 # ADMIN PATH URL RECONFIGURATION
 #=================================================
 
-
-ynh_script_progression "Updating admin path and url..."
-
-if [ $path = "/" ]
+if ynh_app_upgrading_from_version_before 2025.10.18~ynh2
 then
-    ynh_app_setting_set --key=adminurl --value=https://$domain/stats
-else
+    ynh_script_progression "Updating admin path and url..."
 
-    ynh_app_setting_set --key=adminurl --value=https://$domain$path/stats
+    if [ $path = "/" ]
+    then
+        ynh_app_setting_set --key=adminurl --value=https://$domain/stats
+    else
+        ynh_app_setting_set --key=adminurl --value=https://$domain$path/stats
+    fi
+
+    ynh_app_setting_set --key=adminpath --value=stats
+    ynh_write_var_in_file --file="$install_dir/config.json" --key="adminURL" --value="/stats"
 fi
 
-ynh_app_setting_set --key=adminpath --value=stats
-
-ynh_write_var_in_file --file="$install_dir/config.json" --key="adminURL" --value="/stats"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
