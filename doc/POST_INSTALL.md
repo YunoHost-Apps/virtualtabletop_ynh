@@ -1,6 +1,6 @@
 The app url is https://__DOMAIN____PATH__
 
-The admin stats url is https://__DOMAIN____PATH__/stats
+The admin url is __ADMINURL__
 
 The app install dir is `__INSTALL_DIR__`
 
