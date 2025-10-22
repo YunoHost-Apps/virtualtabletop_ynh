@@ -8,13 +8,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# SET & STORE VARIABLES
-#=================================================
-adminpath=$(ynh_string_random --length=8 --filter='a-z0-9')
-
-ynh_app_setting_set --key=adminpath --value=$adminpath
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
@@ -29,10 +22,10 @@ ynh_script_progression "Adding $app's configuration files..."
 if [ $path = "/" ]
 then
     ynh_config_add --template="config_domain.json" --destination="$install_dir/config.json"
-    ynh_app_setting_set --key=adminurl --value=https://$domain/$adminpath
+    ynh_app_setting_set --key=adminurl --value=https://$domain/stats
 else
     ynh_config_add --template="config_path.json" --destination="$install_dir/config.json"
-    ynh_app_setting_set --key=adminurl --value=https://$domain$path/$adminpath
+    ynh_app_setting_set --key=adminurl --value=https://$domain$path/stats
 fi
 
 #=================================================
