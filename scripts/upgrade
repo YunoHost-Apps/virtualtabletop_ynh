@@ -43,7 +43,6 @@ then
     ynh_write_var_in_file --file="$install_dir/config.json" --key="adminURL" --value="/stats"
 fi
 
-
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
 #=================================================
