@@ -7,7 +7,7 @@ name = "VirtualTabletop"
 description.en = "Virtual surface in the browser on which you can play board, dice and card games"
 description.fr = "Surface virtuelle dans le navigateur sur laquelle vous pouvez jouer à des jeux de société, de dés et de cartes"
 
-version = "2025.10.18~ynh1"
+version = "2025.10.18~ynh2"
 
 maintainers = ["trendless"]
 
@@ -60,6 +60,9 @@ ram.runtime = "250M"
 
     [resources.permissions]
     main.url = "/"
+    admin.url = "/stats"
+    admin.show_tile = false
+    admin.allowed = "admins"
 
     [resources.ports]
     main.default = 8272
