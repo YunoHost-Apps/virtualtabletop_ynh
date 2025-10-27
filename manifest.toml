@@ -68,4 +68,4 @@ ram.runtime = "250M"
     main.default = 8272
 
     [resources.nodejs]
-    version = "16"
+    version = "18"
