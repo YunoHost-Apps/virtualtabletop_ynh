@@ -7,7 +7,7 @@ name = "VirtualTabletop"
 description.en = "Virtual surface in the browser on which you can play board, dice and card games"
 description.fr = "Surface virtuelle dans le navigateur sur laquelle vous pouvez jouer à des jeux de société, de dés et de cartes"
 
-version = "2026.01.04~ynh1"
+version = "2026.01.17~ynh1"
 
 maintainers = ["trendless"]
 
@@ -49,8 +49,8 @@ ram.runtime = "250M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/ArnoldSmith86/virtualtabletop/archive/6a934a939aa2b827ca2aa9a601b1a58508d59252.tar.gz"
-    sha256 = "7dc2d5f67b4c7d50b2cdbede185c43474d13c4d9667d882089bea953d7a9532e"
+    url = "https://github.com/ArnoldSmith86/virtualtabletop/archive/0badec2eef2174a92e1662c80c0fed250d6cb703.tar.gz"
+    sha256 = "9222ef977d56e6234b76675f1227e87e927900370e93f73aec4d773200863214"
 
     autoupdate.strategy = "latest_github_commit"
 
