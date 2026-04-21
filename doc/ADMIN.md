@@ -1,1 +1,1 @@
-YNH admin account(s) can view active rooms and player stats here: ADMINURL
+active rooms and player stats: __ADMINURL__
